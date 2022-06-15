@@ -5,7 +5,7 @@ import Stopwatch from "../components/Stopwatch";
 import { Itask } from "../types/task";
 import style from "./App.module.scss";
 function App() {
-  const [tasks, setTasks] = useState<Itask[] | []>({} as Itask[]);
+  const [tasks, setTasks] = useState<Itask[] | []>([]);
   return (
     <div className={style.AppStyle}>
       <Form setTasks={setTasks} tasks={tasks}/>

@@ -8,7 +8,7 @@ function List({tasks}: {tasks: Itask[]}) {
       <h2> Estudos do dia </h2>
       <ul>
         {tasks.map((item, index) => (
-          <Item key={index} task={item.task} time={item.time} />
+          <Item key={index} tasks={item} />
         ))}
       </ul>
     </aside>

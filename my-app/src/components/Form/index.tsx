@@ -12,18 +12,19 @@ export default function Form({setTasks, tasks} : {setTasks: React.Dispatch<React
     setTasks([...tasks, {task: taskForm.task, time: taskForm.time}]);
   }
 
-  function inputHandler(e: any) {
-    setTaskForm({...taskForm, [e.target.name]: e.target.value});
+  function inputHandler(event: any) {
+    console.log(event.target.value);
+    setTaskForm({...taskForm, [event.target.name]: event.target.value});
   }
   return(
     <form className={style.novaTarefa} onSubmit={addTask}>
       <div className={style.inputContainer}>
         <label htmlFor="task">Adicione um novo estudo</label>
-        <input type="text" name="task" id="task" value={taskForm.task} onChange={(event) => {inputHandler({...tasks, task: event.target.value})}} placeholder="O que você quer estudar" required />
+        <input type="text" name="task" id="task" value={taskForm.task} onChange={inputHandler} placeholder="O que você quer estudar" required />
       </div>
       <div className={style.inputContainer}>
         <label htmlFor="time">Time</label>
-        <input type="time" step="1" name="time" id="time" value={taskForm.time} onChange={(event) => {inputHandler({...tasks, time: event.target.value})}} min="00:00:00"  max="01:30:00" required />
+        <input type="time" step="1" name="time" id="time" value={taskForm.time} onChange={inputHandler} min="00:00:00"  max="01:30:00" required />
       </div>
       <Button type="submit">Adicionar</Button>
     </form>
