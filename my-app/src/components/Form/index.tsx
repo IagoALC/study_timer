@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Itask } from "../../types/task";
 import Button from "../Button";
 import style from "./Form.module.scss";
+import {UUID} from 'uuid-generator-ts';
 
 
 export default function Form({setTasks, tasks} : {setTasks: React.Dispatch<React.SetStateAction<Itask[]>>, tasks: Itask[] | []}) {
@@ -9,8 +10,8 @@ export default function Form({setTasks, tasks} : {setTasks: React.Dispatch<React
 
   function addTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const randomId = Math.floor(Math.random() * 10).toString();
-    setTasks([...tasks, {task: taskForm.task, time: taskForm.time, selected: false, completed: false, id: randomId}]);
+    const uuid = new UUID();
+    setTasks([...tasks, {task: taskForm.task, time: taskForm.time, selected: false, completed: false, id: uuid.getDashFreeUUID()}]);
     setTaskForm({task: '', time: ''});
   }
 
