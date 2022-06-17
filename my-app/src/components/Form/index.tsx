@@ -26,7 +26,7 @@ export default function Form({setTasks, tasks} : {setTasks: React.Dispatch<React
       </div>
       <div className={style.inputContainer}>
         <label htmlFor="time">Time</label>
-        <input type="time" step="1" name="time" id="time" value={taskForm.time} onChange={inputHandler} min="00:00:00"  max="01:30:00" required />
+        <input type="time" step="1" name="time" id="time" value={taskForm.time} onChange={inputHandler} min="00:00:00"  max="10:00:00" required />
       </div>
       <Button type="submit">Adicionar</Button>
     </form>

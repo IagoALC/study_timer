@@ -1,5 +1,5 @@
 import { Itask } from "../../../types/task";
-import style from "../List.module.scss";
+import style from "./Item.module.scss";
 
 export default function Item({tasks, taskSelected}: {tasks: Itask, taskSelected: (selected: Itask) => void}) {
   return (
