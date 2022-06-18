@@ -5,7 +5,7 @@ import { HoursToSeconds } from "../../common/date";
 import { useEffect, useState } from "react";
 import { Itask } from "../../types/task";
 
-export default function Stopwatch({selected,}: {selected: Itask | undefined;}) {
+export default function Stopwatch({selected, taskCompleted}: {selected: Itask | undefined, taskCompleted: () => void}) {
   const [timer, setTimer] = useState<number>(0);
   useEffect(() => {
     if (selected?.time) setTimer(parseInt(HoursToSeconds(selected.time)));
@@ -16,6 +16,7 @@ export default function Stopwatch({selected,}: {selected: Itask | undefined;}) {
         setTimer(counter - 1);
         return countdown(counter - 1);
       }
+      taskCompleted();
     }, 1000);
   }
   return (
